@@ -18,7 +18,7 @@ const App = () => {
         <Contactlist />
         <Actioncard />
       </ScrollView>
-      <Text>hi ffffff</Text>
+      <Text>hi</Text>
     </SafeAreaView>
   );
 };
