@@ -5,6 +5,7 @@ const Toggle = () => {
   return (
     <View>
       <Text>Toggle</Text>
+      <Text>Toggle</Text>
       <Button title='Show Data' onPress={()=>setShow(!show)}/>
         {
             show?<User />:null
