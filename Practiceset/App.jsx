@@ -1,11 +1,10 @@
-import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
-import Use1 from './component/Use1'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import Toggle from './component/Toggle'
+
 const App = () => {
   return (
     <ScrollView>
-
-      <Use1 />
-
+      <Toggle />
     </ScrollView>
   )
 }
