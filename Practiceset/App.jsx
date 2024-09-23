@@ -1,11 +1,10 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
-import Hooks from './component/Hooks'
-import RefHookDemo from './component/RefHookDemo'
+import ResposiveUi from './component/ResposiveUi'
 
 
 const App = () => {
   return (
-  <RefHookDemo />
+    <ResposiveUi />
   )
 }
 
