@@ -1,10 +1,13 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
-import ResposiveUi from './component/ResposiveUi'
+import RadioBut from './component/RadioBut'
+
+
 
 
 const App = () => {
   return (
-    <ResposiveUi />
+<RadioBut />
+
   )
 }
 
