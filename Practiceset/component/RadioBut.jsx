@@ -3,31 +3,56 @@ import React, { useState } from 'react'
 
 const RadioBut = () => {
     const [radio1, setRadio1] = useState(1)
+    const skill = [
+        {
+            id: 1,
+            name: 'JAVA'
+        },
+        {
+            id: 2,
+            name: 'JS'
+        },
+        {
+            id: 3,
+            name: 'SQL'
+        },
+        {
+            id: 4,
+            name: 'PYTHON'
+        },
+        {
+            id: 5,
+            name: 'PHP'
+        },
+        {
+            id: 6,
+            name: 'HTML'
+        },
+        {
+            id: 7,
+            name: 'C++'
+        },
+        {
+            id: 8,
+            name: 'C'
+        },
+    ]
     return (
         <View style={styles.Conatainer}>
-            <Text style={styles.fonts}>Radio Button in React Native</Text>
-            <TouchableOpacity onPress={() => setRadio1(1)}>
-                <View style={styles.ButnWrapper}>
-                    <View style={styles.button}>
-                        {
-                            radio1 === 1 ? <View style={styles.buttonColor}></View> : null
-                        }
+            <Text style={styles.fonts}> Dynamic   Radio Button in React Native</Text>
+            {
+                skill.map((item, index) => <TouchableOpacity
+                    key={index} onPress={() => setRadio1(item.id)}>
+                    <View style={styles.ButnWrapper}>
+                        <View style={styles.button}>
+                            {
+                                radio1 === item.id ? <View style={styles.buttonColor}></View> : null
+                            }
+                        </View>
+                        <Text style={styles.fonts}>{item.name}</Text>
                     </View>
-                    <Text style={styles.fonts}>Radio 1</Text>
-                </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setRadio1(2)}>
-                <View style={styles.ButnWrapper}>
-                    <View style={styles.button}>
-                        {
-                            radio1 === 2 ? <View style={styles.buttonColor}></View> : null
-                        }
-                    </View>
-                    <Text style={styles.fonts}>Radio 2</Text>
-                </View>
-            </TouchableOpacity>
-
-
+                </TouchableOpacity>)
+            }
 
         </View>
     )
@@ -43,7 +68,10 @@ const styles = StyleSheet.create({
     },
     ButnWrapper: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        height:50,
+        width:100,
+        marginTop:10
 
     },
     button: {
@@ -52,17 +80,17 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 20,
         margin: 10,
-        borderColor:'#574b90'
+        borderColor: '#0984e3'
     },
     fonts: {
         fontSize: 16,
         fontWeight: 'bold',
-        color:'#574b90'
+        color: '#0984e3'
     },
     buttonColor: {
         height: 32,
         width: 32,
-        backgroundColor: '#574b90',
+        backgroundColor: '#0984e3',
         borderRadius: 16,
         margin: 3
 
