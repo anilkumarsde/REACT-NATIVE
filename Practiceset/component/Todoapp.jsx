@@ -1,77 +1,75 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import Textin from './Textin'
-
+import React, { useCallback, useState } from 'react'
+const data = [
+    { id: 1, title: 'sleep' }
+]
 const Todoapp = () => {
+  const[todolist,setTodolist]=useState(data)
+    const [todo, setTodo] = useState('')
+    const addTodo=useCallback(()=>{
+        const obj={
+            id:Math.random(),
+            title:todo
+        }
+        console.log(data)
+        // data.push(obj)
+        setTodolist((predata)=>[...predata,obj])
+
+    },[todo])
+    const addTask = () => {
+        const obj={
+            id:Math.random(),
+            title:todo
+        }
+        console.log(data)
+        data.push(obj)
+    }
+    const removeTask = () => {
+
+    }
+
     return (
+
+
         <View style={styles.mainContainer}>
-            <Text style={styles.heading}>Todo list</Text>
+            <Text style={styles.heading}>todo app</Text>
             <View style={styles.container}>
 
                 <TextInput
                     style={styles.textbox}
-                    placeholder='Enter Task' />
-                <TouchableOpacity style={styles.button}>
+                    placeholder='Enter Task'
+                    placeholderTextColor={"red"}
+                    value={todo}
+                    onChangeText={(text)=>setTodo(text)}
+                    />
+
+                <TouchableOpacity style={styles.button} onPress={addTodo}>
 
                     <Text style={styles.Textst}>Add Task</Text>
                 </TouchableOpacity>
-                <View style={styles.TaskAdder}>
-                    <Text style={styles.Textst}>Task 1</Text>
-                    <View style={styles.Button1}>
-                        <TouchableOpacity style={styles.button2}>
-                            <Text style={styles.Textst1}>Edit</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button2}>
-                            <Text style={styles.Textst1}>Remove</Text>
-                        </TouchableOpacity>
-
-                    </View>
-
-                </View>
-                <View style={styles.TaskAdder}>
-                    <Text style={styles.Textst}>Task 2</Text>
-                    <View style={styles.Button1}>
-                        <TouchableOpacity style={styles.button2}>
-                            <Text style={styles.Textst1}>Edit</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button2}>
-                            <Text style={styles.Textst1}>Remove</Text>
-                        </TouchableOpacity>
-
-                    </View>
-
-                </View>
-                <View style={styles.TaskAdder}>
-                    <Text style={styles.Textst}>Task 3</Text>
-                    <View style={styles.Button1}>
-                        <TouchableOpacity style={styles.button2}>
-                            <Text style={styles.Textst1}>Edit</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button2}>
-                            <Text style={styles.Textst1}>Remove</Text>
-                        </TouchableOpacity>
-
-                    </View>
-
-                </View>
-                <View style={styles.TaskAdder}>
-                    <Text style={styles.Textst}>Task 4</Text>
-                    <View style={styles.Button1}>
-                        <TouchableOpacity style={styles.button2}>
-                            <Text style={styles.Textst1}>Edit</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button2}>
-                            <Text style={styles.Textst1}>Remove</Text>
-                        </TouchableOpacity>
-
-                    </View>
-
-                </View>
-
+                {
+                    todolist.map((item) => (
+                        <View style={styles.TaskAdder}>
+                            <Text style={styles.Textst}>{item.title}</Text>
+                            <View style={styles.Button1}>
+                                <TouchableOpacity style={styles.button2}>
+                                    <Text style={styles.Textst1}>Edit</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.button2}>
+                                    <Text style={styles.Textst1}>Remove</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    ))
+                }
             </View>
 
-
         </View>
+
+
+
+
+
     )
 }
 
@@ -115,11 +113,11 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#2f3640',
         marginVertical: 10,
-        marginHorizontal:1
+        marginHorizontal: 1
     },
     Textst: {
         fontSize: 14,
-        fontWeight:'500',
+        fontWeight: '500',
 
         color: '#2f3640'
     },
@@ -129,9 +127,9 @@ const styles = StyleSheet.create({
 
         alignItems: 'center',
         paddingHorizontal: 10,
-        backgroundColor:'#f5f6fa',
-        borderRadius:4,
-        marginBottom:10
+        backgroundColor: '#f5f6fa',
+        borderRadius: 4,
+        marginBottom: 10
 
 
     },
@@ -139,23 +137,23 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         height: 50,
-        width:'85%',
-        justifyContent:'flex-end'
+        width: '85%',
+        justifyContent: 'flex-end'
 
     },
-    button2:{
+    button2: {
         height: 40,
-        backgroundColor:'#273c75',
+        backgroundColor: '#273c75',
         width: 70,
         borderRadius: 5,
-        justifyContent:'center',
+        justifyContent: 'center',
         alignItems: 'center',
         marginVertical: 10,
-        marginHorizontal:5
+        marginHorizontal: 5
     },
-    Textst1:{
-        fontSize:14,
-        fontWeight:'600'
+    Textst1: {
+        fontSize: 14,
+        fontWeight: '600'
     }
 
 
