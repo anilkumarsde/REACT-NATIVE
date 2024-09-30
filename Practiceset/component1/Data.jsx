@@ -10,17 +10,17 @@ const arr = [
 ]
 const arr1 = [
     {
-    id: 1, name: 'Anil', age: 23
-},
+        id: 1, name: 'Anil', age: 23
+    },
     {
-    id: 2, name: 'Suni', age: 89
-},
+        id: 2, name: 'Suni', age: 89
+    },
     {
-    id: 3, name: 'Vipin', age: 24
-},
+        id: 3, name: 'Vipin', age: 24
+    },
     {
-    id: 4, name: 'Pawan', age: 20 
-},
+        id: 4, name: 'Pawan', age: 20
+    },
 ];
 const arr2 = arr1.filter((val) => {
     return val.age > 18
