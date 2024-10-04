@@ -1,15 +1,8 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
-import Com from './component1/Com'
-import Data from './component1/Data'
-
-import Usest from './hooks/Usest'
+import Todo from './component1/Todo'
 const App = () => {
   return (
-
-    <Usest />
-
-
-
+    <Todo />
   )
 }
 
